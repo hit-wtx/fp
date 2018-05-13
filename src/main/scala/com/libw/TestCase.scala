@@ -8,6 +8,7 @@ package com.libw
 case class Person3(name: String, age: Int)
 
 object TestCase {
+
   def main(args: Array[String]): Unit = {
     println(patternConstant(5))
     println(patternVariable(5))
@@ -19,7 +20,8 @@ object TestCase {
     val list = List("spark", "Hive", "SparkSQL")
     val tuple1 = ("hello", "world", 1)
     println(patternTuple(list))
-    println(patternTuple(tuple1))// 匹配出来tuple 的第一项 "hello"
+    println(patternTuple(tuple1)) // 匹配出来tuple 的第一项 "hello"
+    println(patterntype(1))
 
 
   }
@@ -52,9 +54,17 @@ object TestCase {
     case _ =>
   }
 
-  //
+  // tuple 匹配
   def patternTuple(t: Any) = t match {
     case (one, _, _) => one
+    case _ => "other"
+  }
+
+  // 类型匹配
+  def patterntype(x: Any) = x match {
+    case x: Int => "int"
+    case x: String => "String"
+    case x: Double => "Double"
     case _ => "other"
   }
 
