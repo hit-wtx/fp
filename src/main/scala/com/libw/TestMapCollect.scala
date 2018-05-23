@@ -14,6 +14,19 @@ object TestMapCollect {
       case (_, v) => "hi," + v
     } toList
 
+    for ((k, v) <- m) {
+      println("k:" + k + ",v:" + v)
+    }
+
+    val comM = Map("a" -> List(1,2,3,4),"b" -> List(3,4,5,6))
+
+
+    comM.map {
+      case (k,v) => {
+        println("k:" + k + ",v:" + v)
+      }
+    }
+
 
     println(list) // List(hi,world, hi,world1, hi,world2)
 
